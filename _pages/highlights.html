@@ -27,6 +27,9 @@ permalink: /highlights/
     .highlight h3 {
     margin-top: 56px;
     }
+    .highlight:target {
+        scroll-margin-top: 60px; /* 调整这个值以适应导航栏的高度 */
+    }
 
     /* 小屏幕手机 */
     @media (max-width: 480px) {
@@ -209,6 +212,19 @@ permalink: /highlights/
         <button class="top-button" onclick="scrollToTop()">Top</button>
 
         <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.hash) {
+                var element = document.querySelector(window.location.hash);
+                if (element) {
+                    var offset = document.querySelector('nav').offsetHeight || 60;
+                    window.scrollTo({
+                        top: element.offsetTop - offset,
+                        behavior: "smooth"
+                    });
+                    }
+                }
+            });
+            
             // 滚动回到页面顶部的函数
             function scrollToTop() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
