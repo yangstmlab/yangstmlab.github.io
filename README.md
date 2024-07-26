@@ -1,4 +1,4 @@
-# RT2 Lab Website
+# YANG Lab Website
 
 This website is built with [Jekyll](https://jekyllrb.com/).
 
