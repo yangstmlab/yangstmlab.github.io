@@ -1,0 +1,135 @@
+---
+title: Facilities
+layout: page
+permalink: /facilities/
+---
+<style>
+    body {
+        line-height: 1.6;
+    }
+    /* 默认双栏设计 */
+    .facilities-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px 0；
+    }
+
+    .facility {
+        display: flex;
+        flex: 1;
+        box-sizing: border-box;
+    }
+
+    .facility img {
+        max-width: 100%;
+        height: auto;
+        width: 40%; 
+        flex: 0 0 40%; /* 图片一栏占40% */
+        margin: 0 0 20px 0;
+    }
+
+    .facility-text h3{
+        flex: 0 0 60%; /* 文字一栏占60% */
+        color: #2a6496;
+        font-size: 18px; /* 默认字体大小 */
+        font-weight: bold;
+        text-align: justify; /* 文字两边对齐 */
+    }
+
+    .facility-text{
+        flex: 0 0 60%; /* 文字一栏占60% */
+        padding-left: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    .facility-text ul{
+        padding-left: 20px;
+    }
+
+
+    /* 单栏设计：小屏幕设备 */
+    @media (max-width: 768px) {
+        .facilities-container {
+            display: block;
+            margin: 10px；
+        }
+
+        .facility {
+            flex-direction: column;
+        }
+
+        .facility img {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .facility-text h3{
+        color: #2a6496;
+        font-size: 18px; /* 小屏幕字体大小 */
+        text-align: justify; /* 文字两边对齐 */
+        font-weight: bold;
+        }
+
+        .facility-text {
+        margin: 10px;
+        padding-left: 0;
+        }
+
+        .facility-text ul{
+        padding-left: 20px;
+        }
+
+    }
+</style>
+<!-- Facilities -->
+
+<body>
+    <div class="facilities-container">
+        <div class="facility">
+            <img src="/assets/images/facilities1.jpg" alt="Facility Image1">
+            <div class="facility-text">
+                <h3>Ultra-low Temperature (300mK) High-magnetic Field (9-2-2T) Scanning Tunneling Microscope</h3>
+                <p>This helium-3 cooled STM system is equipped with a three-dimensional vector magnetic field as well as high-frequency coaxial lines. The high-frequency capability (up to 40GHz with pulsed capabilities) allows for performing ESR on single atoms and molecules on surfaces for quantum sensing of magnetic materials and quantum simulations.</p>
+                <ul>
+                    <li>超高真空、极低温（300 mK）、强磁场（9-2-2 T）扫描隧道显微镜</li>
+                    <li>空间精度 0.05 nm、能量分辨率 40 neV</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="facilities-container">
+        <div class="facility">
+            <img src="/assets/images/facilities2.jpg" alt="Facility Image2">
+            <div class="facility-text">
+                <h3>Ultra-low Temperature (300mK) High-magnetic Field (15T) 
+                    Scanning Tunneling Microscope 
+                    (under construction)</h3>
+                <p>This helium-3 cooled STM system is equipped with a 15T magnetic field as well as high-frequency coaxial lines. The high-frequency capability (up to 40GHz with pulsed capabilities) allows for performing ESR on single atoms and molecules on surfaces for quantum sensing of magnetic materials and quantum simulations. </p>
+                <ul>
+                    <li>超高真空、极低温（300 mK）、强磁场（15 T）扫描隧道显微镜</li>
+                    <li>空间精度 0.05 nm、能量分辨率 40 neV</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="facilities-container">
+        <div class="facility">
+            <img src="/assets/images/facilities3.jpg" alt="Facility Image3">
+            <div class="facility-text">
+                <h3>UHV Molecular Beam Epitaxy (MBE)</h3>
+                <p>This UHV MBE system is equipped with several sources for growth of high-quality low-dimensional quantum materials for further study with STM.</p>
+                <ul>
+                    <li>超高真空 (10<sup>-10</sup> mbar)</li>
+                    <li>各温区蒸发</li>
+                    <li>低温/高温样品台</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>

@@ -1,0 +1,167 @@
+---
+layout: default
+---
+
+<div class="carousel">
+    <div class="carousel-slide">
+        <a href="/highlights#Nanotechnology_2024">
+            <img src="/assets/images/Q03-YANG-main-01.png" alt="Image 1">
+        </a>
+        <div class="carousel-description">Topological quantum magnets</div>
+    </div>
+    <div class="carousel-slide" style="display:none;">
+        <a href="/highlights#NatureCommunications_2021">
+            <img src="/assets/images/Q03-YANG-main-02.png" alt="Image 2">
+        </a>
+        <div class="carousel-description">Spin RVB states</div>
+    </div>
+    <div class="carousel-slide" style="display:none;">
+        <a href="/highlights#Science_2019">
+            <img src="/assets/images/Q03-YANG-main-03.png" alt="Image 3">
+        </a>
+        <div class="carousel-description">Coherent spin manipulation</div>
+    </div>
+    <div class="carousel-buttons">
+        <span class="carousel-button active" onclick="currentSlide(1)"></span>
+        <span class="carousel-button" onclick="currentSlide(2)"></span>
+        <span class="carousel-button" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+
+<div class="highlight">
+    <h2>Scanning Tunneling Microscopy of Quantum Magnets and Quantum Materials</h2>
+    <h3><a href="https://english.iop.cas.cn/" target="_blank" class="black-link">Institute of Physics, CAS</a></h3>
+</div>
+
+{{ content }}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+    .highlight {
+        margin: 20px 0;
+    }
+    .highlight h2 {
+        margin: 0 0 10px 0;
+        color: #2a6496;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .highlight h3 {
+        margin: 0 0 10px 0;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+    }
+    @media (max-width: 480px) {
+        .highlight h2 {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 768px) {
+        .highlight h2 {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 1024px) {
+        .highlight h2 {
+            font-size: 20px;
+        }
+    }
+    .black-link {
+        color: black;
+    }
+
+    .carousel {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .carousel-slide {
+        display: none;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(192, 192, 192, 0.3);
+        color: #771f00;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .carousel-buttons {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        gap: 5px;
+    }
+
+    .carousel-button {
+        height: 15px;
+        width: 15px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .carousel-button.active {
+        background-color: #771f00;
+    }
+</style>
+
+<script>
+    let slideIndex = 0;
+    let slides = document.querySelectorAll(".carousel-slide");
+    let buttons = document.querySelectorAll(".carousel-button");
+
+    function showSlide(index) {
+        if (index >= slides.length) slideIndex = 0;
+        if (index < 0) slideIndex = slides.length - 1;
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            buttons[i].classList.remove("active");
+        }
+
+        slides[slideIndex].style.display = "block";
+        buttons[slideIndex].classList.add("active");
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        showSlide(slideIndex);
+    }
+
+    function currentSlide(index) {
+        slideIndex = index - 1;
+        showSlide(slideIndex);
+    }
+
+    // Auto slide
+    setInterval(() => {
+        nextSlide();
+    }, 6000);
+
+    // Initialize
+    showSlide(slideIndex);
+</script>
