@@ -55,5 +55,3 @@ Positions are available for graduates with a university degree, postdoctoral res
 Contact: Prof. Kai Yang
 
 E-mail: kaiyang@iphy.ac.cn
-
-Tel: +86 010-82648035
