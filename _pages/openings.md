@@ -14,7 +14,7 @@ permalink: /openings/
 
 杨锴，中科院物理所特聘研究员，博士生导师。2009年毕业于山东大学，2015年在中科院物理所获博士学位。博士毕业后，在美国IBM公司Almaden研究中心从事博士后研究。2021年加入中科院物理所。曾获得IBM公司杰出技术成就奖(IBM Outstanding Technical Achievement Award)和IBM公司研发部门奖(IBM Research Division Award)等奖项。目前主持国家自然科学基金重大研究计划、北京市重点研究专题项目、国家自然科学基金面上项目，国家自然科学基金人才项目、中国科学院人才项目，并承担国家重点研发计划、中国科学院青年团队项目等。
 
-长期从事基于电子自旋共振-扫描隧道显微镜（ESR-STM）的前沿研究，致力于在单原子尺度上开展量子探测和量子模拟，并进行量子材料的原子级表征与调控。研究方向涵盖量子信息科学、凝聚态物理、自旋电子学及纳米信息器件物理等多个领域。设计并搭建了国内首套ESR-STM系统，指标达到国际领先水平，并利用该系统首次构筑了原子级精准的拓扑量子磁体。近年来，在原子尺度上开展了量子磁性、量子传感、量子计算和量子模拟等方面的研究，取得了系列创新成果。迄今共发表SCI论文三十余篇，包括Science (2篇)，Nature (1篇)，Nature Nanotechnology (3篇)，Nature Physics (2篇)，Nature Communications (2篇)，Physical Review Letters (3篇)等，并被Nature和Nature Nanotechnology等国际学术杂志作为研究亮点报道。引用次数2500余次，H因子为22。
+长期从事基于电子自旋共振-扫描隧道显微镜（ESR-STM）的前沿研究，致力于在单原子尺度上开展量子探测和量子模拟，并进行量子材料的原子级表征与调控。研究方向涵盖量子信息科学、凝聚态物理、自旋电子学及纳米信息器件物理等多个领域。设计并搭建了国内首套ESR-STM系统，指标达到国际领先水平，并利用该系统首次构筑了原子级精准的拓扑量子磁体。近年来，在原子尺度上开展了量子磁性、量子传感、量子计算和量子模拟等方面的研究，取得了系列创新成果。迄今共发表SCI论文三十余篇，包括Science (2篇)，Nature (1篇)，Nature Nanotechnology (3篇)，Nature Physics (2篇)，Nature Communications (3篇)，Physical Review Letters (3篇)等，并被Nature和Nature Nanotechnology等国际学术杂志作为研究亮点报道。引用次数2500余次，H因子为22。
 
 **二、 研究方向简介：**
 
@@ -63,3 +63,4 @@ Positions are available for graduates with a university degree, postdoctoral res
 Contact: Prof. Kai Yang
 
 E-mail: kaiyang@iphy.ac.cn
+
