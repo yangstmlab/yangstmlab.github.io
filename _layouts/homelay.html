@@ -94,6 +94,8 @@ layout: default
 
     .carousel-slide img {
         width: 100%;
+        height: 400px; /* 固定统一高度 */
+        object-fit: cover; /* 关键：保证不变形且铺满容器 */
         height: auto;
     }
 
@@ -172,4 +174,5 @@ layout: default
     // Initialize
     showSlide(slideIndex);
 </script>
+
 
