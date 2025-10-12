@@ -28,7 +28,6 @@ layout: default
     <div class="carousel-description">Coherent spin manipulation</div>
   </div>
 
-  <!-- 小圆点：放在描述条右下角并与描述条重合 -->
   <div class="carousel-buttons">
     <span class="carousel-button active" onclick="currentSlide(1)"></span>
     <span class="carousel-button" onclick="currentSlide(2)"></span>
@@ -58,52 +57,55 @@ layout: default
   @media (max-width: 1024px){ .highlight h2 { font-size: 20px; } }
   .black-link { color: black; }
 
-  /* ===== 轮播：描述条不遮图，按钮在描述条内右下角 ===== */
+  /* ===== 轮播样式 ===== */
   .carousel {
     position: relative;
     max-width: 100%;
     margin: auto;
-    --caption-h: 44px;         /* 描述条高度（可调） */
+    --caption-h: 35px; /* 描述条高度 */
   }
 
   .carousel-slide {
     display: none;
     position: relative;
-    padding-bottom: var(--caption-h);  /* 预留给描述条的空间，避免覆盖图片 */
+    padding-bottom: var(--caption-h);
   }
 
   .carousel-slide img {
     width: 100%;
-    height: 300px;           /* 统一高度 */
-    object-fit: contain;     /* 完整显示，不裁剪 */
-    background-color: white; /* 未填满处为白底 */
+    height: 300px;
+    object-fit: contain;
+    background-color: white;
     display: block;
   }
 
+  /* 描述条：左对齐文字，为圆点留空间 */
   .carousel-description {
     position: absolute;
     left: 0; right: 0; bottom: 0;
     height: var(--caption-h);
     display: flex;
-    align-items: center;
-    justify-content: flex-start;                 /* 左对齐文字 */
+    align-items: center;          /* 垂直居中内容 */
+    justify-content: flex-start;  /* 左对齐文字 */
     background-color: rgba(192, 192, 192, 0.3);
     color: #771f00;
     padding: 0 12px;
-    /* 为右侧小圆点预留空间：JS 会写入 --dots-w（无 JS 时用 80px 兜底） */
-    padding-right: calc(var(--dots-w, 80px) + 12px);
     box-sizing: border-box;
     font-size: 16px;
     font-weight: bold;
+    padding-right: calc(var(--dots-w, 80px) + 12px);
     overflow: hidden;
   }
 
-  /* 小圆点放入描述条的右下角并与之重合 */
+  /* 小圆点：位于描述条内，右下角且垂直居中 */
   .carousel-buttons {
     position: absolute;
     right: 10px;
-    bottom: 6px;     /* 位于描述条内部底部 */
+    bottom: 0;                   /* 放在描述条内部 */
+    height: var(--caption-h);
     display: flex;
+    align-items: center;          /* ✅ 垂直居中 */
+    justify-content: flex-end;
     gap: 5px;
     z-index: 2;
   }
@@ -122,39 +124,4 @@ layout: default
   let slideIndex = 0;
   const slides  = document.querySelectorAll(".carousel-slide");
   const buttons = document.querySelectorAll(".carousel-button");
-  const carousel = document.querySelector(".carousel");
-
-  function showSlide(index) {
-    if (index >= slides.length) slideIndex = 0;
-    if (index < 0) slideIndex = slides.length - 1;
-
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-      buttons[i].classList.remove("active");
-    }
-    slides[slideIndex].style.display = "block";
-    buttons[slideIndex].classList.add("active");
-
-    // 每次切换后都更新一次按钮宽度，保证描述文字预留空间
-    reserveDotsSpace();
-  }
-
-  function nextSlide() { slideIndex++; showSlide(slideIndex); }
-  function prevSlide() { slideIndex--; showSlide(slideIndex); }
-  function currentSlide(index) { slideIndex = index - 1; showSlide(slideIndex); }
-
-  // 自动切换
-  setInterval(nextSlide, 6000);
-  showSlide(slideIndex);
-
-  // ===== 智能为描述文字预留圆点宽度，避免遮挡 =====
-  function reserveDotsSpace() {
-    const dots = document.querySelector('.carousel-buttons');
-    if (!carousel || !dots) return;
-    const w = Math.ceil(dots.getBoundingClientRect().width);
-    carousel.style.setProperty('--dots-w', w + 'px');
-  }
-  window.addEventListener('load', reserveDotsSpace);
-  window.addEventListener('resize', reserveDotsSpace);
-  reserveDotsSpace();
-</script>
+  const carousel = document.querySelector(".carousel")
