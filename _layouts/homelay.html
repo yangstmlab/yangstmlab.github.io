@@ -5,25 +5,25 @@ layout: default
 <div class="carousel">
     <div class="carousel-slide">
         <a href="/highlights#NatureCommunications_2025">
-            <img src="/assets/images/Q03-YANG-main-20251012.png.jpg" alt="Image 1">
+            <img src="/assets/images/highlights/images/NatureCommunications_2025.jpg" alt="Image 1">
         </a>
         <div class="carousel-description">Spin quantum interference</div>
     </div>
     <div class="carousel-slide" style="display:none;">
         <a href="/highlights#Nanotechnology_2024">
-            <img src="/assets/images/Q03-YANG-main-01.png" alt="Image 1">
+            <img src="/assets/images/highlights/images/NatureNanotechnology_2024.jpg" alt="Image 1">
         </a>
         <div class="carousel-description">Topological quantum magnets</div>
     </div>
     <div class="carousel-slide" style="display:none;">
         <a href="/highlights#NatureCommunications_2021">
-            <img src="/assets/images/Q03-YANG-main-02.png" alt="Image 2">
+            <img src="/assets/images/highlights/images/NatureCommunications_2021.png" alt="Image 2">
         </a>
         <div class="carousel-description">Spin RVB states</div>
     </div>
     <div class="carousel-slide" style="display:none;">
         <a href="/highlights#Science_2019">
-            <img src="/assets/images/Q03-YANG-main-03.png" alt="Image 3">
+            <img src="/assets/images/highlights/images/Science_2019.png" alt="Image 3">
         </a>
         <div class="carousel-description">Coherent spin manipulation</div>
     </div>
@@ -94,8 +94,9 @@ layout: default
 
     .carousel-slide img {
         width: 100%;
-        height: 400px;         /* 固定统一高度 */
-        object-fit: cover;     /* 按比例填充，裁剪多余部分，不变形 */
+        height: 300px;         /* 固定统一高度 */
+        object-fit: contain;   /* 保持比例完整显示，不裁剪 */
+        background-color: white; /* 空白区域填充为白色 */
         display: block;        /* 消除 inline 空白间隙 */
     }
 
@@ -174,6 +175,7 @@ layout: default
     // Initialize
     showSlide(slideIndex);
 </script>
+
 
 
 
