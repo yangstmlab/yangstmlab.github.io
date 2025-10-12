@@ -28,7 +28,6 @@ layout: default
     <div class="carousel-description">Coherent spin manipulation</div>
   </div>
 
-  <!-- 小圆点 -->
   <div class="carousel-buttons">
     <span class="carousel-button active" onclick="currentSlide(1)"></span>
     <span class="carousel-button" onclick="currentSlide(2)"></span>
@@ -58,54 +57,52 @@ layout: default
   @media (max-width: 1024px){ .highlight h2 { font-size: 20px; } }
   .black-link { color: black; }
 
-  /* ===== 轮播（桌面端样式）===== */
+  /* ===== 桌面端样式 ===== */
   .carousel {
     position: relative;
     max-width: 100%;
     margin: auto;
-    --caption-h: 44px;             /* 描述条高度，可调 */
+    --caption-h: 44px; /* 描述条高度 */
   }
 
   .carousel-slide {
     display: none;
     position: relative;
-    padding-bottom: var(--caption-h); /* 预留描述条空间（桌面端） */
+    padding-bottom: var(--caption-h); /* 预留描述条空间 */
   }
 
   .carousel-slide img {
     width: 100%;
-    height: 300px;                 /* 统一高度 */
-    object-fit: contain;           /* 完整显示，不裁剪 */
-    background-color: white;       /* 未填满处白底 */
+    height: 300px;
+    object-fit: contain;
+    background-color: white;
     display: block;
   }
 
-  /* 描述条：左对齐，为右侧圆点预留空间 */
   .carousel-description {
     position: absolute;
     left: 0; right: 0; bottom: 0;
     height: var(--caption-h);
     display: flex;
-    align-items: center;           /* 垂直居中 */
-    justify-content: flex-start;   /* 左对齐文字 */
+    align-items: center;
+    justify-content: flex-start;
     background-color: rgba(192, 192, 192, 0.3);
     color: #771f00;
     padding: 0 12px;
-    padding-right: calc(var(--dots-w, 80px) + 12px); /* 为圆点预留空间 */
+    padding-right: calc(var(--dots-w, 80px) + 12px);
     box-sizing: border-box;
     font-size: 16px;
     font-weight: bold;
     overflow: hidden;
   }
 
-  /* 小圆点：描述条内部右侧，垂直居中 */
   .carousel-buttons {
     position: absolute;
     right: 10px;
-    bottom: 0;                     /* 与描述条同高区域内 */
+    bottom: 0;
     height: var(--caption-h);
     display: flex;
-    align-items: center;           /* 垂直居中 */
+    align-items: center; /* 垂直居中 */
     justify-content: flex-end;
     gap: 5px;
     z-index: 2;
@@ -120,27 +117,39 @@ layout: default
   }
   .carousel-button.active { background-color: #771f00; }
 
-  /* ===== 手机端优化：描述条紧贴图片、圆点下移、图片高度缩小 ===== */
+  /* ===== 手机端优化 ===== */
   @media (max-width: 768px) {
     .carousel-slide {
-      padding-bottom: 0;           /* 取消预留，描述条紧贴图片 */
+      padding-bottom: 0; /* 取消预留，让条紧贴图片 */
     }
+
     .carousel-slide img {
-      height: 260px;               /* ✅ 移动端图片高度 */
+      height: 260px; /* 调整图片高度 */
     }
+
     .carousel-description {
-      position: static;            /* 退出绝对定位，排在图片下方 */
-      height: auto;                /* 高度自适应内容 */
-      display: block;
-      padding: 8px 12px;
-      padding-right: 12px;         /* 移动端圆点不在条内，无需预留 */
+      position: absolute; /* 保留描述条覆盖在图片底部 */
+      left: 0; right: 0; bottom: 0;
+      height: var(--caption-h);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 12px;
+      padding-right: calc(var(--dots-w, 80px) + 12px);
+      background-color: rgba(192, 192, 192, 0.35);
+      font-size: 15px;
     }
+
     .carousel-buttons {
-      position: static;            /* 移到描述条下方 */
-      height: auto;
+      position: absolute; /* 保持在描述条内部 */
+      right: 10px;
+      bottom: 0;
+      height: var(--caption-h);
+      display: flex;
+      align-items: center; /* 垂直居中 */
       justify-content: flex-end;
-      margin: 6px 12px 0;          /* 与描述条紧挨着 */
-      gap: 6px;
+      gap: 5px;
+      z-index: 3;
     }
   }
 </style>
@@ -162,7 +171,7 @@ layout: default
     slides[slideIndex].style.display = "block";
     buttons[slideIndex].classList.add("active");
 
-    reserveDotsSpace(); // 桌面端时用于给描述条预留右侧空间
+    reserveDotsSpace();
   }
 
   function nextSlide() { slideIndex++; showSlide(slideIndex); }
@@ -172,20 +181,14 @@ layout: default
   setInterval(nextSlide, 6000);
   showSlide(slideIndex);
 
-  // 动态测量圆点宽度（桌面端描述条需要为其预留空间）
+  /* 动态为描述条右侧留空间（桌面 & 手机） */
   function reserveDotsSpace() {
     const dots = document.querySelector('.carousel-buttons');
     if (!carousel || !dots) return;
-
-    // 仅在桌面端生效（与上方 media query 对应）
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      carousel.style.removeProperty('--dots-w');
-      return;
-    }
-
     const w = Math.ceil(dots.getBoundingClientRect().width);
     carousel.style.setProperty('--dots-w', w + 'px');
   }
+
   window.addEventListener('load', reserveDotsSpace);
   window.addEventListener('resize', reserveDotsSpace);
   reserveDotsSpace();
