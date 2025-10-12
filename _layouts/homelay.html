@@ -3,147 +3,158 @@ layout: default
 ---
 
 <div class="carousel">
-    <div class="carousel-slide">
-        <a href="/highlights#NatureCommunications_2025">
-            <img src="/assets/images/highlights/NatureCommunications_2025.jpg" alt="NatureCommunications_2025">
-        </a>
-        <div class="carousel-description">Spin quantum interference</div>
-    </div>
-    <div class="carousel-slide" style="display:none;">
-        <a href="/highlights#Nanotechnology_2024">
-            <img src="/assets/images/highlights/NatureNanotechnology_2024.jpg" alt="NatureNanotechnology_2024">
-        </a>
-        <div class="carousel-description">Topological quantum magnets</div>
-    </div>
-    <div class="carousel-slide" style="display:none;">
-        <a href="/highlights#NatureCommunications_2021">
-            <img src="/assets/images/highlights/NatureCommunications_2021.png" alt="NatureCommunications_2021">
-        </a>
-        <div class="carousel-description">Spin RVB states</div>
-    </div>
-    <div class="carousel-slide" style="display:none;">
-        <a href="/highlights#Science_2019">
-            <img src="/assets/images/highlights/Science_2019.png" alt="Science_2019">
-        </a>
-        <div class="carousel-description">Coherent spin manipulation</div>
-    </div>
+  <div class="carousel-slide">
+    <a href="/highlights#NatureCommunications_2025">
+      <img src="/assets/images/highlights/NatureCommunications_2025.jpg" alt="NatureCommunications_2025">
+    </a>
+    <div class="carousel-description">Spin quantum interference</div>
+  </div>
+  <div class="carousel-slide" style="display:none;">
+    <a href="/highlights#Nanotechnology_2024">
+      <img src="/assets/images/highlights/NatureNanotechnology_2024.jpg" alt="NatureNanotechnology_2024">
+    </a>
+    <div class="carousel-description">Topological quantum magnets</div>
+  </div>
+  <div class="carousel-slide" style="display:none;">
+    <a href="/highlights#NatureCommunications_2021">
+      <img src="/assets/images/highlights/NatureCommunications_2021.png" alt="NatureCommunications_2021">
+    </a>
+    <div class="carousel-description">Spin RVB states</div>
+  </div>
+  <div class="carousel-slide" style="display:none;">
+    <a href="/highlights#Science_2019">
+      <img src="/assets/images/highlights/Science_2019.png" alt="Science_2019">
+    </a>
+    <div class="carousel-description">Coherent spin manipulation</div>
+  </div>
 
-    <div class="carousel-buttons">
-        <span class="carousel-button active" onclick="currentSlide(1)"></span>
-        <span class="carousel-button" onclick="currentSlide(2)"></span>
-        <span class="carousel-button" onclick="currentSlide(3)"></span>
-        <span class="carousel-button" onclick="currentSlide(4)"></span>
-    </div>
+  <!-- 小圆点：放在描述条右下角并与描述条重合 -->
+  <div class="carousel-buttons">
+    <span class="carousel-button active" onclick="currentSlide(1)"></span>
+    <span class="carousel-button" onclick="currentSlide(2)"></span>
+    <span class="carousel-button" onclick="currentSlide(3)"></span>
+    <span class="carousel-button" onclick="currentSlide(4)"></span>
+  </div>
 </div>
 
 <div class="highlight">
-    <h2>Scanning Tunneling Microscopy of Quantum Magnets and Quantum Materials</h2>
-    <h3><a href="https://english.iop.cas.cn/" target="_blank" class="black-link">Institute of Physics, CAS</a></h3>
+  <h2>Scanning Tunneling Microscopy of Quantum Magnets and Quantum Materials</h2>
+  <h3><a href="https://english.iop.cas.cn/" target="_blank" class="black-link">Institute of Physics, CAS</a></h3>
 </div>
 
 {{ content }}
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-    }
-    .highlight { margin: 20px 0; }
-    .highlight h2 {
-        margin: 0 0 10px 0;
-        color: #2a6496;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-    }
-    .highlight h3 {
-        margin: 0 0 10px 0;
-        font-size: 16px;
-        text-align: center;
-        font-weight: bold;
-    }
-    @media (max-width: 480px) { .highlight h2 { font-size: 16px; } }
-    @media (max-width: 768px) { .highlight h2 { font-size: 16px; } }
-    @media (max-width: 1024px){ .highlight h2 { font-size: 20px; } }
+  body { font-family: Arial, sans-serif; line-height: 1.6; }
+  .highlight { margin: 20px 0; }
+  .highlight h2 {
+    margin: 0 0 10px 0; color: #2a6496; font-size: 20px; text-align: center; font-weight: bold;
+  }
+  .highlight h3 {
+    margin: 0 0 10px 0; font-size: 16px; text-align: center; font-weight: bold;
+  }
+  @media (max-width: 480px) { .highlight h2 { font-size: 16px; } }
+  @media (max-width: 768px) { .highlight h2 { font-size: 16px; } }
+  @media (max-width: 1024px){ .highlight h2 { font-size: 20px; } }
+  .black-link { color: black; }
 
-    .black-link { color: black; }
+  /* ===== 轮播：描述条不遮图，按钮在描述条内右下角 ===== */
+  .carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    --caption-h: 44px;         /* 描述条高度（可调） */
+  }
 
-    /* ====== 轮播样式（已修复重叠） ====== */
-    .carousel {
-        position: relative;
-        max-width: 100%;
-        margin: auto;
-        --caption-h: 44px; /* 描述条高度：可改 36/48 等 */
-    }
+  .carousel-slide {
+    display: none;
+    position: relative;
+    padding-bottom: var(--caption-h);  /* 预留给描述条的空间，避免覆盖图片 */
+  }
 
-    .carousel-slide {
-        display: none;
-        position: relative;
-        padding-bottom: var(--caption-h); /* 为描述条预留空间，避免覆盖图片 */
-    }
+  .carousel-slide img {
+    width: 100%;
+    height: 300px;           /* 统一高度 */
+    object-fit: contain;     /* 完整显示，不裁剪 */
+    background-color: white; /* 未填满处为白底 */
+    display: block;
+  }
 
-    .carousel-slide img {
-        width: 100%;
-        height: 300px;         /* 统一高度 */
-        object-fit: contain;   /* 完整显示，不裁剪 */
-        background-color: white;
-        display: block;
-    }
+  .carousel-description {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: var(--caption-h);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;                 /* 左对齐文字 */
+    background-color: rgba(192, 192, 192, 0.3);
+    color: #771f00;
+    padding: 0 12px;
+    /* 为右侧小圆点预留空间：JS 会写入 --dots-w（无 JS 时用 80px 兜底） */
+    padding-right: calc(var(--dots-w, 80px) + 12px);
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+  }
 
-    .carousel-description {
-        position: absolute;
-        left: 0; right: 0; bottom: 0;
-        height: var(--caption-h);        /* 固定描述条高度 */
-        display: flex;
-        align-items: center;              /* 垂直居中 */
-        justify-content: center;          /* 水平居中 */
-        background-color: rgba(192, 192, 192, 0.3);
-        color: #771f00;
-        padding: 0 12px;
-        box-sizing: border-box;
-        font-size: 16px;
-        font-weight: bold;
-    }
+  /* 小圆点放入描述条的右下角并与之重合 */
+  .carousel-buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;     /* 位于描述条内部底部 */
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+  }
 
-    .carousel-buttons {
-        position: absolute;
-        right: 10px;
-        bottom: calc(var(--caption-h) + 8px); /* 按钮上移到描述条之上 */
-        display: flex;
-        gap: 5px;
-    }
-
-    .carousel-button {
-        height: 15px; width: 15px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        cursor: pointer;
-    }
-    .carousel-button.active { background-color: #771f00; }
+  .carousel-button {
+    height: 15px; width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .carousel-button.active { background-color: #771f00; }
 </style>
 
 <script>
-    let slideIndex = 0;
-    let slides = document.querySelectorAll(".carousel-slide");
-    let buttons = document.querySelectorAll(".carousel-button");
+  let slideIndex = 0;
+  const slides  = document.querySelectorAll(".carousel-slide");
+  const buttons = document.querySelectorAll(".carousel-button");
+  const carousel = document.querySelector(".carousel");
 
-    function showSlide(index) {
-        if (index >= slides.length) slideIndex = 0;
-        if (index < 0) slideIndex = slides.length - 1;
+  function showSlide(index) {
+    if (index >= slides.length) slideIndex = 0;
+    if (index < 0) slideIndex = slides.length - 1;
 
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-            buttons[i].classList.remove("active");
-        }
-        slides[slideIndex].style.display = "block";
-        buttons[slideIndex].classList.add("active");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      buttons[i].classList.remove("active");
     }
+    slides[slideIndex].style.display = "block";
+    buttons[slideIndex].classList.add("active");
 
-    function nextSlide() { slideIndex++; showSlide(slideIndex); }
-    function prevSlide() { slideIndex--; showSlide(slideIndex); }
-    function currentSlide(index) { slideIndex = index - 1; showSlide(slideIndex); }
+    // 每次切换后都更新一次按钮宽度，保证描述文字预留空间
+    reserveDotsSpace();
+  }
 
-    setInterval(nextSlide, 6000); /* 自动切换 */
-    showSlide(slideIndex);        /* 初始化 */
+  function nextSlide() { slideIndex++; showSlide(slideIndex); }
+  function prevSlide() { slideIndex--; showSlide(slideIndex); }
+  function currentSlide(index) { slideIndex = index - 1; showSlide(slideIndex); }
+
+  // 自动切换
+  setInterval(nextSlide, 6000);
+  showSlide(slideIndex);
+
+  // ===== 智能为描述文字预留圆点宽度，避免遮挡 =====
+  function reserveDotsSpace() {
+    const dots = document.querySelector('.carousel-buttons');
+    if (!carousel || !dots) return;
+    const w = Math.ceil(dots.getBoundingClientRect().width);
+    carousel.style.setProperty('--dots-w', w + 'px');
+  }
+  window.addEventListener('load', reserveDotsSpace);
+  window.addEventListener('resize', reserveDotsSpace);
+  reserveDotsSpace();
 </script>
