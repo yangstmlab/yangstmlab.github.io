@@ -62,7 +62,7 @@ layout: default
     position: relative;
     max-width: 100%;
     margin: auto;
-    --caption-h: 42px; /* 描述条高度 */
+    --caption-h: 40px; /* 描述条高度 */
   }
 
   .carousel-slide {
@@ -124,5 +124,36 @@ layout: default
   let slideIndex = 0;
   const slides  = document.querySelectorAll(".carousel-slide");
   const buttons = document.querySelectorAll(".carousel-button");
-  const carousel = document.querySelector(".carousel")
+  const carousel = document.querySelector(".carousel");
 
+  function showSlide(index) {
+    if (index >= slides.length) slideIndex = 0;
+    if (index < 0) slideIndex = slides.length - 1;
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      buttons[i].classList.remove("active");
+    }
+    slides[slideIndex].style.display = "block";
+    buttons[slideIndex].classList.add("active");
+    reserveDotsSpace();
+  }
+
+  function nextSlide() { slideIndex++; showSlide(slideIndex); }
+  function prevSlide() { slideIndex--; showSlide(slideIndex); }
+  function currentSlide(index) { slideIndex = index - 1; showSlide(slideIndex); }
+
+  setInterval(nextSlide, 6000);
+  showSlide(slideIndex);
+
+  // 自动计算圆点宽度，文字自动避让
+  function reserveDotsSpace() {
+    const dots = document.querySelector('.carousel-buttons');
+    if (!carousel || !dots) return;
+    const w = Math.ceil(dots.getBoundingClientRect().width);
+    carousel.style.setProperty('--dots-w', w + 'px');
+  }
+  window.addEventListener('load', reserveDotsSpace);
+  window.addEventListener('resize', reserveDotsSpace);
+  reserveDotsSpace();
+</script>
