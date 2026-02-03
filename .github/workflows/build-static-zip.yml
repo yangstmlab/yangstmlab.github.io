@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,13 +21,6 @@ jobs:
         with:
           ruby-version: "3.1"
           bundler-cache: false
-
-      - name: Show key files
-        run: |
-          ls -la
-          echo "----"
-          test -f Gemfile && echo "Gemfile exists" || echo "No Gemfile"
-          test -f _config.yml && echo "_config.yml exists" || echo "No _config.yml"
 
       - name: Build with Jekyll
         run: |
@@ -39,15 +33,19 @@ jobs:
             jekyll build --destination _site
           fi
 
-      - name: Create zip (contents of _site, no extra top folder)
+      # 关键：只把 _site 的内容打进 zip（zip 内不再套 _site 文件夹）
+      - name: Create zip (single-level)
         run: |
+          rm -f yangstmlab_static_site.zip
           cd _site
           zip -r ../yangstmlab_static_site.zip .
           cd ..
 
-      - name: Upload artifact
+      # 关键：上传“这个 zip 文件本身”作为 artifact
+      - name: Upload artifact (zip only)
         uses: actions/upload-artifact@v4
         with:
-          name: yangstmlab_static_site
+          name: yangstmlab_static_site_zip
           path: yangstmlab_static_site.zip
+          if-no-files-found: error
           retention-days: 14
