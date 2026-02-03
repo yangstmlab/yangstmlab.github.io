@@ -1,14 +1,27 @@
 <li class="media mb-5">
-    <img class="align-self-center mr-3"
-         src="/assets/images/team/{{ member.image }}"
-         style="max-width: 100px; border-radius: 50%;"
-         alt="{{member.title}}">
+  <img class="align-self-center mr-3"
+       src="{{ '/assets/images/team/' | relative_url }}{{ member.image }}"
+       style="max-width: 100px; border-radius: 50%;"
+       alt="{{ member.title }}">
 
-    <div class="media-body">
-      <h5 class="mt-0"><a href="{{ member.url }}">{{ member.title }}</a></h5>
-      <p>{{member.role}}</p>
-      <p>{{member.email}}</p>
-      <p>{{member.education}}</p>
-      {%- include team_member_social.html -%}
-    </div>
+  <div class="media-body">
+    <h5 class="mt-0">
+      {% if member.external_url %}
+        <a href="{{ member.external_url }}" target="_blank" rel="noopener">
+          {{ member.title }}
+        </a>
+      {% else %}
+        <a href="{{ member.url | relative_url }}">
+          {{ member.title }}
+        </a>
+      {% endif %}
+    </h5>
+
+    <p>{{ member.role }}</p>
+    <p>{{ member.email }}</p>
+    <p>{{ member.education }}</p>
+    {%- include team_member_social.html -%}
+  </div>
 </li>
+
+
