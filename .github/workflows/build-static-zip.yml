@@ -18,13 +18,21 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
-          bundler-cache: true
+          ruby-version: "3.1"
+          bundler-cache: false
 
-      # 如果你仓库里有 Gemfile，下面这步会用 bundle exec 更稳
+      - name: Show key files
+        run: |
+          ls -la
+          echo "----"
+          test -f Gemfile && echo "Gemfile exists" || echo "No Gemfile"
+          test -f _config.yml && echo "_config.yml exists" || echo "No _config.yml"
+
       - name: Build with Jekyll
         run: |
           if [ -f "Gemfile" ]; then
+            gem install bundler
+            bundle install --jobs 4 --retry 3
             bundle exec jekyll build --destination _site
           else
             gem install jekyll
