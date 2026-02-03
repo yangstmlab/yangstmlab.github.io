@@ -7,7 +7,7 @@
 
 # Site settings
 title: Q03i LAB @IOP
-author: YANG LAB @IOP
+author: YANG LAB
 email: kaiyang@iphy.ac.cn
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -45,5 +45,6 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
   parse_block_html: true # default for kramdown is false. This will enable using Markdown links
+
 
 
