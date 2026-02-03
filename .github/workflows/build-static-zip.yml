@@ -1,9 +1,7 @@
-name: Build static site zip
+name: Build static site zip (manual only)
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["main", "master"]
 
 permissions:
   contents: read
@@ -13,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Ruby
@@ -22,7 +20,7 @@ jobs:
           ruby-version: "3.1"
           bundler-cache: false
 
-      - name: Build with Jekyll
+      - name: Build site with Jekyll
         run: |
           if [ -f "Gemfile" ]; then
             gem install bundler
@@ -33,16 +31,16 @@ jobs:
             jekyll build --destination _site
           fi
 
-      # 关键：只把 _site 的内容打进 zip（zip 内不再套 _site 文件夹）
-      - name: Create zip (single-level)
+      # 只把 _site 里的内容打包，不套 _site 目录
+      - name: Create single-level zip
         run: |
           rm -f yangstmlab_static_site.zip
           cd _site
           zip -r ../yangstmlab_static_site.zip .
           cd ..
 
-      # 关键：上传“这个 zip 文件本身”作为 artifact
-      - name: Upload artifact (zip only)
+      # 上传这个 zip 文件本身（避免二次打包）
+      - name: Upload zip artifact
         uses: actions/upload-artifact@v4
         with:
           name: yangstmlab_static_site_zip
