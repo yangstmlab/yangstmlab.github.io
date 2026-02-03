@@ -37,7 +37,10 @@ layout: default
 </div>
 
 <div class="highlight">
-  <h2>Scanning Tunneling Microscopy of Quantum Magnets and Quantum Materials</h2>
+  <h2>Quantum simulation and sensing at the atomic scale</h2>
+  <p class="subtitle">
+    原子尺度的量子模拟与量子探测
+  </p>
   <h3><a href="https://english.iop.cas.cn/" target="_blank" class="black-link">Institute of Physics, CAS</a></h3>
 </div>
 
@@ -56,6 +59,11 @@ layout: default
   @media (max-width: 768px) { .highlight h2 { font-size: 16px; } }
   @media (max-width: 1024px){ .highlight h2 { font-size: 20px; } }
   .black-link { color: black; }
+
+  .subtitle {
+  font-size: 1.1em;
+  margin: 6px 0;
+  color: #444;}
 
   /* ===== 桌面端样式 ===== */
   .carousel {
@@ -116,6 +124,8 @@ layout: default
     cursor: pointer;
   }
   .carousel-button.active { background-color: #771f00; }
+
+
 
   /* ===== 手机端优化 ===== */
   @media (max-width: 768px) {
@@ -193,3 +203,4 @@ layout: default
   window.addEventListener('resize', reserveDotsSpace);
   reserveDotsSpace();
 </script>
+
