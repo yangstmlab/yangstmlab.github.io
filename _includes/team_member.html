@@ -11,17 +11,24 @@
           {{ member.title }}
         </a>
       {% else %}
-        <a href="{{ member.url | relative_url }}">
+        <span class="member-name">
           {{ member.title }}
-        </a>
+        </span>
       {% endif %}
     </h5>
 
-    <p>{{ member.role }}</p>
-    <p>{{ member.email }}</p>
-    <p>{{ member.education }}</p>
+    {% if member.role and member.role != "" %}
+      <p>{{ member.role }}</p>
+    {% endif %}
+
+    {% if member.email and member.email != "" %}
+      <p>{{ member.email }}</p>
+    {% endif %}
+
+    {% if member.education and member.education != "" %}
+      <p>{{ member.education }}</p>
+    {% endif %}
+
     {%- include team_member_social.html -%}
   </div>
 </li>
-
-
