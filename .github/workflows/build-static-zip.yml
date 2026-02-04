@@ -1,4 +1,4 @@
-name: Build static site zip (manual only)
+name: Build static site (manual only)
 
 on:
   workflow_dispatch:
@@ -31,19 +31,11 @@ jobs:
             jekyll build --destination _site
           fi
 
-      # 只把 _site 里的内容打包，不套 _site 目录
-      - name: Create single-level zip
-        run: |
-          rm -f yangstmlab_static_site.zip
-          cd _site
-          zip -r ../yangstmlab_static_site.zip .
-          cd ..
-
-      # 上传这个 zip 文件本身（避免二次打包）
-      - name: Upload zip artifact
+      # 关键：直接上传 _site 目录，让 GitHub 只打一次包（下载后不会再套一个 zip）
+      - name: Upload _site as artifact (single-level)
         uses: actions/upload-artifact@v4
         with:
-          name: yangstmlab_static_site_zip
-          path: yangstmlab_static_site.zip
+          name: yangstmlab_static_site
+          path: _site/
           if-no-files-found: error
           retention-days: 14
