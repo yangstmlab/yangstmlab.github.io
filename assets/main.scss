@@ -4,10 +4,3 @@
 @import "bootstrap";
 @import "fontawesome";
 
-/* Disable click shrink effect on site title */
-.navbar-brand:active,
-.navbar-brand:focus,
-.site-title:active,
-.site-title:focus {
-  transform: none !important;
-}
