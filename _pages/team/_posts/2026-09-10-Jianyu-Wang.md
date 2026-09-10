@@ -1,8 +1,8 @@
 ---
 layout: member
 category: phd-student
-title: Jiangyu Wang
-image: Shijie Li.jpg
+title: Jianyu Wang
+image: Jianyu Wang.png
 role: PhD Student
 social:
     twitter: 
@@ -12,9 +12,9 @@ social:
     website: 
     orcid: 
 education:
- - Sichuan University(四川大学)
+ - Shandong University(山东大学)
 ---
 
-from Sichuan University
-(四川大学)
+from Shandong University
+(山东大学)
 
